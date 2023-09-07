@@ -25,5 +25,23 @@ def info():
 
 
     # URLS
-    git_file_url =
+    git_file_url ="https://github.com/busade/hngTasks/blob/master/task_one.py"
     git_repo_url = "https://github.com/busade/hngTasks"
+
+
+    # response
+    response={
+        "slack_name": slack_name,
+        "Current_day": day,
+        "Track": track,
+        "utc_time": current_time.strftime('%Y-%m-%d %H:%M:%S UTC'),
+        "github_file_url":git_file_url,
+        "github_repo_file":git_repo_url,
+        "status_code": 200
+
+    }
+
+    return jsonify(response)
+if __name__=='__main__':
+    app.run(host='0.0.0.0', port=5000)
+    
