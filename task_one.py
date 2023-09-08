@@ -43,6 +43,5 @@ def info():
     }
     response_json = json.dumps(response, sort_keys=False)
     return Response(response_json, content_type= "application/json")
-if __name__=='__main__':
-    app.run(host='0.0.0.0', port=5000)
+
     
