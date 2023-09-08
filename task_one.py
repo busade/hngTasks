@@ -1,10 +1,11 @@
-from flask import Flask,request,jsonify
+from flask import Flask,request,Response
+
 from datetime import datetime
-import pytz
+import pytz, json
 app = Flask(__name__)
 
 
-@app.route('/path',methods=['GET'])
+@app.route('/api',methods=['GET'])
 def info():
     #get queries
     slack_name = request.args.get('slack_name')
@@ -40,7 +41,8 @@ def info():
         "status_code": 200
 
     }
-
-    return jsonify(response)
-
+    response_json = json.dumps(response, sort_keys=False)
+    return Response(response_json, content_type= "application/json")
+if __name__=='__main__':
+    app.run(host='0.0.0.0', port=5000)
     
