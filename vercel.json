@@ -1,0 +1,14 @@
+{
+    "builds":[
+        {
+            "src":"HNG/task_one.py",
+            "use":"@vercel/python"
+        }
+    ],
+    "routes":[
+        {
+            "src":"/(.*)",
+            "dest":"HNG/task_one.py"
+        }
+    ]
+}
