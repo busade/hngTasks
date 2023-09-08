@@ -34,7 +34,7 @@ def info():
     response={
         "slack_name": slack_name,
         "current_day": day,
-        "utc_time": current_time.strftime('%Y-%m-%d %H:%M:%S UTC'),
+        "utc_time": current_time.strftime('%Y-%m-%d %H:%M:%S Z'),
         "track": track,
         "github_file_url":git_file_url,
         "github_repo_url":git_repo_url,
