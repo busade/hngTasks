@@ -34,7 +34,7 @@ def info():
     response={
         "slack_name": slack_name,
         "current_day": day,
-        "utc_time": current_time.strftime('%Y-%m-%d %H:%M:%SUTC'),
+        "utc_time": current_time.strftime('%Y-%m-%dT%H:%M:%SZ'),
         "track": track,
         "github_file_url":git_file_url,
         "github_repo_url":git_repo_url,
@@ -44,4 +44,4 @@ def info():
     response_json = json.dumps(response, sort_keys=False)
     return Response(response_json, content_type= "application/json")
 
-    
+
