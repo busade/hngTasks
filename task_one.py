@@ -18,6 +18,8 @@ def info():
 
     # time validation
     current_time = datetime.now(pytz.UTC)
+    iso_datetime = current_time.strftime('%Y-%m-%dT%H:%M:%SZ')
+
     utc_diff = current_time.utcoffset().total_seconds() / 3600
     time_validation = "within +/-2 hours"
     if utc_diff < -2 or utc_diff > 2:
@@ -34,8 +36,8 @@ def info():
     response={
         "slack_name": slack_name,
         "current_day": day,
-        "utc_time": current_time.strftime('%Y-%m-%dT%H:%M:%SZ'),
-        "track": track,
+        "utc_time": iso_datetime,
+        "track":track,
         "github_file_url":git_file_url,
         "github_repo_url":git_repo_url,
         "status_code": 200
