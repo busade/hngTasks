@@ -1,6 +1,6 @@
 from flask import Flask,request,Response
 
-from datetime import datetime
+from datetime import datetime, timedelta
 import pytz, json
 app = Flask(__name__)
 
@@ -18,12 +18,13 @@ def info():
 
     # time validation
     current_time = datetime.now(pytz.UTC)
-    iso_datetime = current_time.strftime('%Y-%m-%dT%H:%M:%SZ')
+    current = current_time + timedelta(hours=1)
+    iso_datetime = current.strftime('%Y-%m-%dT%H:%M:%SZ')
 
     utc_diff = current_time.utcoffset().total_seconds() / 3600
-    time_validation = "within +/-2 hours"
+    time_validation = "within +/-2 mins"
     if utc_diff < -2 or utc_diff > 2:
-        time_validation = "outside +/-2 hours"
+        time_validation = "outside +/-2 mins"
 
 
 
